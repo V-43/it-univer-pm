@@ -1,0 +1,42 @@
+<table class="table table-borderless">
+    <tbody>
+        @foreach($projects as $project)
+        <tr>
+            <td>
+                <a href="{{ $project->path() }}">{{ $project->name }}</a>
+                <div class="desc">{{ $project->description }}</div>
+            </td>
+            <td>
+                <span class="row flex-xl-nowrap" title="{{ $project->tasks_count }} tasks">
+                    <span>
+                        <svg class="bi bi-list-task" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M2 2.5a.5.5 0 00-.5.5v1a.5.5 0 00.5.5h1a.5.5 0 00.5-.5V3a.5.5 0 00-.5-.5H2zM3 3H2v1h1V3z"
+                                clip-rule="evenodd" />
+                            <path
+                                d="M5 3.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zM5.5 7a.5.5 0 000 1h9a.5.5 0 000-1h-9zm0 4a.5.5 0 000 1h9a.5.5 0 000-1h-9z" />
+                            <path fill-rule="evenodd"
+                                d="M1.5 7a.5.5 0 01.5-.5h1a.5.5 0 01.5.5v1a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 00-.5.5v1a.5.5 0 00.5.5h1a.5.5 0 00.5-.5v-1a.5.5 0 00-.5-.5H2zm1 .5H2v1h1v-1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                    <span class="mr-sm-2 pl-1">{{ $project->tasks_count }}</span>
+                </span>
+                <span class="row flex-xl-nowrap" title="{{ $project->members_count }} members">
+                    <span>
+                        <svg class="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H2zm5-6a3 3 0 100-6 3 3 0 000 6z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                    <span class="mr-sm-2 pl-1">{{ $project->members_count }}</span>
+                </span>
+            </td>
+            <td>{{ $project->updated_at->format('H:i') }}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
