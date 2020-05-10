@@ -5,7 +5,7 @@
 git clone https://github.com/V-43/it-univer-pm.git
 cd it-univer-pm/
 
-#устанавливаем зависимости
+# устанавливаем зависимости 
 composer install
 npm install
 
