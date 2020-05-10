@@ -1,6 +1,23 @@
 @extends('layout', ['project' => $task->project])
 @section('title', $task->name . ' - ' . $task->project->name)
 
+@section('content')
+@if (session('message'))
+    <div class="notification is-success">
+        <button class="delete"></button>
+        {{ session('message') }}
+    </div>
+@endif
+
+@if ($errors->any())
+    <div class="notification is-danger">
+        <button class="delete"></button>
+        @foreach ($errors->all() as $error)
+            {{ $error }}<br>
+        @endforeach
+    </div>
+@endif
+
 <div class="tags">
     <a href="{{ $task->project->path() }}" class="bordered text-light bg-primary">#{{ $task->project->name }}</a>
     @foreach($task->tags as $tag)
